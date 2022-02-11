@@ -35,7 +35,9 @@ class HttpMethodsType {
     print('Api Post, my $url');
 
     try {
-      return await http.post(url, body: body).then((response) => _returnResponse);
+      return await http
+          .post(url, body: body)
+          .then((response) => _returnResponse);
     } on SocketException {
       print('No net');
       throw const HttpExceptionFetchData('No Internet connection');
@@ -46,7 +48,9 @@ class HttpMethodsType {
     String _finalUrl = (_baseUrl + apiUrl);
     Uri _uri = Uri.parse(_finalUrl);
     try {
-      return await http.put(_uri, body: body).then((response) => _returnResponse(response));
+      return await http
+          .put(_uri, body: body)
+          .then((response) => _returnResponse(response));
     } on SocketException {
       print('No net');
       throw const HttpExceptionFetchData('No Internet connection');
@@ -57,7 +61,9 @@ class HttpMethodsType {
     String _finalUrl = (_baseUrl + apiUrl);
     Uri _uri = Uri.parse(_finalUrl);
     try {
-      return await http.delete(_uri).then((response) => _returnResponse(response));
+      return await http
+          .delete(_uri)
+          .then((response) => _returnResponse(response));
     } on SocketException {
       print('No net');
       throw const HttpExceptionFetchData('No Internet connection');
@@ -79,6 +85,7 @@ dynamic _returnResponse(http.Response response) {
       throw HttpExceptionUnauthorised(response.body.toString());
     case 500:
     default:
-      throw HttpExceptionFetchData('Error occured while Communication with Server with StatusCode : ${response.statusCode}');
+      throw HttpExceptionFetchData(
+          'Error occured while Communication with Server with StatusCode : ${response.statusCode}');
   }
 }

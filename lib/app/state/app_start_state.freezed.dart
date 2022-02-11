@@ -11,7 +11,8 @@ part of 'app_start_state.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 class _$AppStartStateTearOff {
@@ -93,11 +94,14 @@ mixin _$AppStartState {
 
 /// @nodoc
 abstract class $AppStartStateCopyWith<$Res> {
-  factory $AppStartStateCopyWith(AppStartState value, $Res Function(AppStartState) then) = _$AppStartStateCopyWithImpl<$Res>;
+  factory $AppStartStateCopyWith(
+          AppStartState value, $Res Function(AppStartState) then) =
+      _$AppStartStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AppStartStateCopyWithImpl<$Res> implements $AppStartStateCopyWith<$Res> {
+class _$AppStartStateCopyWithImpl<$Res>
+    implements $AppStartStateCopyWith<$Res> {
   _$AppStartStateCopyWithImpl(this._value, this._then);
 
   final AppStartState _value;
@@ -107,12 +111,15 @@ class _$AppStartStateCopyWithImpl<$Res> implements $AppStartStateCopyWith<$Res> 
 
 /// @nodoc
 abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) = __$InitialCopyWithImpl<$Res>;
+  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
+      __$InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$AppStartStateCopyWithImpl<$Res> implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then) : super(_value, (v) => _then(v as _Initial));
+class __$InitialCopyWithImpl<$Res> extends _$AppStartStateCopyWithImpl<$Res>
+    implements _$InitialCopyWith<$Res> {
+  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
+      : super(_value, (v) => _then(v as _Initial));
 
   @override
   _Initial get _value => super._value as _Initial;
@@ -130,7 +137,8 @@ class _$_Initial implements _Initial {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _Initial);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initial);
   }
 
   @override
@@ -217,12 +225,18 @@ abstract class _Initial implements AppStartState {
 
 /// @nodoc
 abstract class $UnauthenticatedCopyWith<$Res> {
-  factory $UnauthenticatedCopyWith(Unauthenticated value, $Res Function(Unauthenticated) then) = _$UnauthenticatedCopyWithImpl<$Res>;
+  factory $UnauthenticatedCopyWith(
+          Unauthenticated value, $Res Function(Unauthenticated) then) =
+      _$UnauthenticatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UnauthenticatedCopyWithImpl<$Res> extends _$AppStartStateCopyWithImpl<$Res> implements $UnauthenticatedCopyWith<$Res> {
-  _$UnauthenticatedCopyWithImpl(Unauthenticated _value, $Res Function(Unauthenticated) _then) : super(_value, (v) => _then(v as Unauthenticated));
+class _$UnauthenticatedCopyWithImpl<$Res>
+    extends _$AppStartStateCopyWithImpl<$Res>
+    implements $UnauthenticatedCopyWith<$Res> {
+  _$UnauthenticatedCopyWithImpl(
+      Unauthenticated _value, $Res Function(Unauthenticated) _then)
+      : super(_value, (v) => _then(v as Unauthenticated));
 
   @override
   Unauthenticated get _value => super._value as Unauthenticated;
@@ -240,7 +254,8 @@ class _$Unauthenticated implements Unauthenticated {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is Unauthenticated);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is Unauthenticated);
   }
 
   @override
@@ -327,12 +342,18 @@ abstract class Unauthenticated implements AppStartState {
 
 /// @nodoc
 abstract class _$InternetUnAvailableCopyWith<$Res> {
-  factory _$InternetUnAvailableCopyWith(_InternetUnAvailable value, $Res Function(_InternetUnAvailable) then) = __$InternetUnAvailableCopyWithImpl<$Res>;
+  factory _$InternetUnAvailableCopyWith(_InternetUnAvailable value,
+          $Res Function(_InternetUnAvailable) then) =
+      __$InternetUnAvailableCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InternetUnAvailableCopyWithImpl<$Res> extends _$AppStartStateCopyWithImpl<$Res> implements _$InternetUnAvailableCopyWith<$Res> {
-  __$InternetUnAvailableCopyWithImpl(_InternetUnAvailable _value, $Res Function(_InternetUnAvailable) _then) : super(_value, (v) => _then(v as _InternetUnAvailable));
+class __$InternetUnAvailableCopyWithImpl<$Res>
+    extends _$AppStartStateCopyWithImpl<$Res>
+    implements _$InternetUnAvailableCopyWith<$Res> {
+  __$InternetUnAvailableCopyWithImpl(
+      _InternetUnAvailable _value, $Res Function(_InternetUnAvailable) _then)
+      : super(_value, (v) => _then(v as _InternetUnAvailable));
 
   @override
   _InternetUnAvailable get _value => super._value as _InternetUnAvailable;
@@ -350,7 +371,8 @@ class _$_InternetUnAvailable implements _InternetUnAvailable {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _InternetUnAvailable);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _InternetUnAvailable);
   }
 
   @override
@@ -437,12 +459,18 @@ abstract class _InternetUnAvailable implements AppStartState {
 
 /// @nodoc
 abstract class $AppAuthenticatedCopyWith<$Res> {
-  factory $AppAuthenticatedCopyWith(AppAuthenticated value, $Res Function(AppAuthenticated) then) = _$AppAuthenticatedCopyWithImpl<$Res>;
+  factory $AppAuthenticatedCopyWith(
+          AppAuthenticated value, $Res Function(AppAuthenticated) then) =
+      _$AppAuthenticatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$AppAuthenticatedCopyWithImpl<$Res> extends _$AppStartStateCopyWithImpl<$Res> implements $AppAuthenticatedCopyWith<$Res> {
-  _$AppAuthenticatedCopyWithImpl(AppAuthenticated _value, $Res Function(AppAuthenticated) _then) : super(_value, (v) => _then(v as AppAuthenticated));
+class _$AppAuthenticatedCopyWithImpl<$Res>
+    extends _$AppStartStateCopyWithImpl<$Res>
+    implements $AppAuthenticatedCopyWith<$Res> {
+  _$AppAuthenticatedCopyWithImpl(
+      AppAuthenticated _value, $Res Function(AppAuthenticated) _then)
+      : super(_value, (v) => _then(v as AppAuthenticated));
 
   @override
   AppAuthenticated get _value => super._value as AppAuthenticated;
@@ -460,7 +488,8 @@ class _$AppAuthenticated implements AppAuthenticated {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is AppAuthenticated);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AppAuthenticated);
   }
 
   @override

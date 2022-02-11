@@ -1,13 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:peritosapp/router/app_router.gr.dart';
-import 'package:peritosapp/router/app_router.dart';
 
-void main() => {WidgetsFlutterBinding.ensureInitialized(), runApp(ProviderScope(child: MyApp()))};
-
-/* final myprovider = Provider((ref) => 'ADASD');
+/* void main() => {WidgetsFlutterBinding.ensureInitialized(), runApp(ProviderScope(child: MyApp()))};
  */
+/* final myprovider = Provider((ref) => 'ADASD');
+/*  */
 class MyApp extends StatelessWidget {
   final _appRouter = AppRouter();
 
@@ -28,7 +26,7 @@ class MyApp extends StatelessWidget {
       routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
-}
+} */
 
 /* class HomePage extends ConsumerWidget {
   const HomePage({Key? key}) : super(key: key);

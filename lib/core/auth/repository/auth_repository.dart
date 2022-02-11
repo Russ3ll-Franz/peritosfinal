@@ -21,10 +21,12 @@ class AuthRepository implements AuthRepositoryProtocol {
   @override
   Future<AuthState> login(String email, String password) async {
     if (!Validator.isValidPassWord(password)) {
-      return const AuthState.error(HttpException.errorWithMessage('Minimum 8 characters required'));
+      return const AuthState.error(
+          HttpException.errorWithMessage('Minimum 8 characters required'));
     }
     if (!Validator.isValidEmail(email)) {
-      return const AuthState.error(HttpException.errorWithMessage('Please enter a valid email address'));
+      return const AuthState.error(
+          HttpException.errorWithMessage('Please enter a valid email address'));
     }
     final params = {
       'email': email,

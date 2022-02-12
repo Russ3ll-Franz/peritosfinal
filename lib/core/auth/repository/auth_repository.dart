@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:peritosapp/core/auth/model/user_response/user_response.dart';
 import 'package:peritosapp/core/auth/state/auth_state.dart';
 import 'package:peritosapp/shared/http/http_exceptions.dart';
 import 'package:peritosapp/shared/http/http_methods.dart';
+import 'package:peritosapp/shared/repository/user_repository.dart';
 import 'package:peritosapp/shared/util/validator.dart';
 
 abstract class AuthRepositoryProtocol {
@@ -21,25 +25,26 @@ class AuthRepository implements AuthRepositoryProtocol {
   @override
   Future<AuthState> login(String email, String password) async {
     if (!Validator.isValidPassWord(password)) {
-      return const AuthState.error(
-          HttpException.errorWithMessage('Minimum 8 characters required'));
+      return const AuthState.error(HttpException.errorWithMessage('Minimum 8 characters required'));
     }
     if (!Validator.isValidEmail(email)) {
-      return const AuthState.error(
-          HttpException.errorWithMessage('Please enter a valid email address'));
+      return const AuthState.error(HttpException.errorWithMessage('Please enter a valid email address'));
     }
     final params = {
-      'email': email,
+      'username': email,
       'password': password,
     };
-    final loginResponse = await _api.post('login', jsonEncode(params));
+    final loginResponse = await _api.post('usuario/logInApp', jsonEncode(params));
 
+    print("my loginResponse");
+    print(loginResponse.toString());
     return loginResponse.when(success: (success) async {
-      final tokenRepository = _reader(tokenRepositoryProvider);
+      final userRepository = _reader(userRepositoryProvider);
 
-      final token = Token.fromJson(success);
+      final userId = UserResponse.fromJson(success);
+      print(userId.user!.id.toString());
 
-      await tokenRepository.saveToken(token);
+      await userRepository.saveIdUser(userId.user!.id.toString());
 
       return const AuthState.loggedIn();
     }, error: (error) {

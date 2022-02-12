@@ -1,12 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:peritosapp/data/model/user/response/user_response.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../model/user/user.dart';
 
 abstract class TokenRepositoryProtocol {
   Future<void> remove();
-  Future<void> saveIdUser(User user);
-  Future<User?> fetchUserId();
+  Future<void> saveIdUser(String user);
+  Future<String?> fetchUserId();
 }
 
 final userRepositoryProvider = Provider<UserRepository>((ref) {
@@ -18,39 +19,32 @@ class UserRepository implements TokenRepositoryProtocol {
   final Reader _reader;
   User? _user;
   @override
-  Future<User?> fetchUserId() async {
-    String? idUserValue;
-    final prefs = await SharedPreferences.getInstance();
-    idUserValue = prefs.getString(_user!.id);
-    print(idUserValue);
-    try {
-      if (idUserValue != null) {
-        _user = userFromJson(idUserValue);
-      }
-    } on Exception catch (e) {
-      return _user;
-    }
+  Future<String?> fetchUserId() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    return _user;
+    try {
+      final idUserValue = prefs.getString('id');
+
+      return idUserValue;
+    } catch (e) {
+      rethrow;
+    }
   }
 
   @override
   Future<void> remove() async {
-    _user = null;
-    print(_user);
     final prefs = await SharedPreferences.getInstance();
-    await prefs.remove(_user!.id.toString());
+    await prefs.remove('id');
   }
 
   @override
-  Future<void> saveIdUser(User user) async {
+  Future<void> saveIdUser(String idUser) async {
     final prefs = await SharedPreferences.getInstance();
-    _user = user;
+    print("SAVE ID USER");
+    print(idUser);
 
-    if (_user != null) {
-      try {
-        await prefs.setString(_user!.id, _user!.id);
-      } on Exception catch (e) {}
-    }
+    try {
+      await prefs.setString('id', idUser);
+    } on Exception catch (e) {}
   }
 }

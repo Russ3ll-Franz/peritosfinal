@@ -1,20 +1,9 @@
-class ApiResponse<T> {
-  Status? status;
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:peritosapp/shared/http/http_exceptions.dart';
+part 'api_response.freezed.dart';
 
-  T? data;
-
-  String? message;
-
-  ApiResponse.loading(this.message) : status = Status.LOADING;
-
-  ApiResponse.completed(this.data) : status = Status.COMPLETED;
-
-  ApiResponse.error(this.message) : status = Status.ERROR;
-
-  @override
-  String toString() {
-    return "Status : $status \n Message : $message \n Data : $data";
-  }
+@freezed
+class APIResponse<T> with _$APIResponse<T> {
+  const factory APIResponse.success(T value) = APISuccess<T>;
+  const factory APIResponse.error(HttpException exception) = APIError;
 }
-
-enum Status { LOADING, COMPLETED, ERROR }

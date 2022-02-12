@@ -1,9 +1,12 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:peritosapp/app/widget/app.dart';
 
-/* void main() => {WidgetsFlutterBinding.ensureInitialized(), runApp(ProviderScope(child: MyApp()))};
- */
+void main() => {
+      WidgetsFlutterBinding.ensureInitialized(),
+      runApp(ProviderScope(child: App()))
+    };
+
 /* final myprovider = Provider((ref) => 'ADASD');
 /*  */
 class MyApp extends StatelessWidget {
@@ -46,5 +49,16 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+ */
+/*
+Future<void> main() async {
+  runApp(
+    ProviderScope(
+      overrides: [],
+      observers: [],
+      child: App(),
+    ),
+  );
 }
  */

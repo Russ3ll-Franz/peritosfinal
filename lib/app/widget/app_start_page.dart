@@ -11,6 +11,8 @@ class AppStartPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(appStartProvider);
+    print("STADO APP START");
+    print(state);
 
     return state.maybeWhen(
       initial: () => const LoadingWidget(),

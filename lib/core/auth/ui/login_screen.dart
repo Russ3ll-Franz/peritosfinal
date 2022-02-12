@@ -40,15 +40,17 @@ class LoginScreen extends ConsumerWidget {
                       controller: _passwordController,
                       obscureText: true,
                     ),
-                    Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: <Widget>[
-                      const SizedBox(height: 30),
-                      _widgetSignInButton(context, ref),
-                      const SizedBox(height: 30),
-                      Text(
-                        'Nuevo Usuario',
-                        textAlign: TextAlign.center,
-                      ),
-                    ]),
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          const SizedBox(height: 30),
+                          _widgetSignInButton(context, ref),
+                          const SizedBox(height: 30),
+                          Text(
+                            'Nuevo Usuario',
+                            textAlign: TextAlign.center,
+                          ),
+                        ]),
                   ],
                 ),
               )
@@ -60,7 +62,9 @@ class LoginScreen extends ConsumerWidget {
         width: double.infinity,
         child: ElevatedButton(
           onPressed: () {
-            ref.read(authProvider.notifier).login(_emailController.text, _passwordController.text);
+            ref
+                .read(authProvider.notifier)
+                .login(_emailController.text, _passwordController.text);
           },
           child: Text('Iniciar Sesión'),
         ));

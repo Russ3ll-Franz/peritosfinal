@@ -16,6 +16,8 @@ class UserResponse extends Equatable {
     return _$UserResponseFromJson(json);
   }
 
+  String? get id => null;
+
   Map<String, dynamic> toJson() => _$UserResponseToJson(this);
 
   @override

@@ -15,6 +15,7 @@ class InspeccionDetailScreen extends ConsumerWidget {
         leading: IconButton(
           icon: SvgPicture.asset(
             assetName,
+            
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),

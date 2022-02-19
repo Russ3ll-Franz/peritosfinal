@@ -6,18 +6,23 @@ import 'package:peritosapp/core/home_menu/provider/home_provider.dart';
 import 'package:peritosapp/core/home_menu/state/home_state.dart';
 import 'package:peritosapp/shared/repository/user_repository.dart';
 
-final appStartProvider = StateNotifierProvider<AppStartNotifier, AppStartState>((ref) {
+final appStartProvider =
+    StateNotifierProvider<AppStartNotifier, AppStartState>((ref) {
   final loginState = ref.watch(authProvider);
   final homeState = ref.watch(homeProvider);
 
   late AppStartState appStartState;
-  appStartState = loginState is AppAuthenticated ? const AppStartState.authenticated() : const AppStartState.initial();
+  appStartState = loginState is AppAuthenticated
+      ? const AppStartState.authenticated()
+      : const AppStartState.initial();
 
   return AppStartNotifier(appStartState, ref.read, loginState, homeState);
 });
 
 class AppStartNotifier extends StateNotifier<AppStartState> {
-  AppStartNotifier(AppStartState appStartState, this._reader, this._authState, this._homeState) : super(appStartState) {
+  AppStartNotifier(AppStartState appStartState, this._reader, this._authState,
+      this._homeState)
+      : super(appStartState) {
     _init();
   }
 

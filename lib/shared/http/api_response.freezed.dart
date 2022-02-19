@@ -18,6 +18,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$APIResponseTearOff {
   const _$APIResponseTearOff();
 
+  APILoading<T> loading<T>(String message) {
+    return APILoading<T>(
+      message,
+    );
+  }
+
   APISuccess<T> success<T>(T value) {
     return APISuccess<T>(
       value,
@@ -38,18 +44,21 @@ const $APIResponse = _$APIResponseTearOff();
 mixin _$APIResponse<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String message) loading,
     required TResult Function(T value) success,
     required TResult Function(HttpException exception) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? loading,
     TResult Function(T value)? success,
     TResult Function(HttpException exception)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? loading,
     TResult Function(T value)? success,
     TResult Function(HttpException exception)? error,
     required TResult orElse(),
@@ -57,18 +66,21 @@ mixin _$APIResponse<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(APILoading<T> value) loading,
     required TResult Function(APISuccess<T> value) success,
     required TResult Function(APIError<T> value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(APILoading<T> value)? loading,
     TResult Function(APISuccess<T> value)? success,
     TResult Function(APIError<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(APILoading<T> value)? loading,
     TResult Function(APISuccess<T> value)? success,
     TResult Function(APIError<T> value)? error,
     required TResult orElse(),
@@ -91,6 +103,146 @@ class _$APIResponseCopyWithImpl<T, $Res>
   final APIResponse<T> _value;
   // ignore: unused_field
   final $Res Function(APIResponse<T>) _then;
+}
+
+/// @nodoc
+abstract class $APILoadingCopyWith<T, $Res> {
+  factory $APILoadingCopyWith(
+          APILoading<T> value, $Res Function(APILoading<T>) then) =
+      _$APILoadingCopyWithImpl<T, $Res>;
+  $Res call({String message});
+}
+
+/// @nodoc
+class _$APILoadingCopyWithImpl<T, $Res>
+    extends _$APIResponseCopyWithImpl<T, $Res>
+    implements $APILoadingCopyWith<T, $Res> {
+  _$APILoadingCopyWithImpl(
+      APILoading<T> _value, $Res Function(APILoading<T>) _then)
+      : super(_value, (v) => _then(v as APILoading<T>));
+
+  @override
+  APILoading<T> get _value => super._value as APILoading<T>;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(APILoading<T>(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$APILoading<T> implements APILoading<T> {
+  const _$APILoading(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'APIResponse<$T>.loading(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is APILoading<T> &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  $APILoadingCopyWith<T, APILoading<T>> get copyWith =>
+      _$APILoadingCopyWithImpl<T, APILoading<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) loading,
+    required TResult Function(T value) success,
+    required TResult Function(HttpException exception) error,
+  }) {
+    return loading(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? loading,
+    TResult Function(T value)? success,
+    TResult Function(HttpException exception)? error,
+  }) {
+    return loading?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? loading,
+    TResult Function(T value)? success,
+    TResult Function(HttpException exception)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(APILoading<T> value) loading,
+    required TResult Function(APISuccess<T> value) success,
+    required TResult Function(APIError<T> value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(APILoading<T> value)? loading,
+    TResult Function(APISuccess<T> value)? success,
+    TResult Function(APIError<T> value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(APILoading<T> value)? loading,
+    TResult Function(APISuccess<T> value)? success,
+    TResult Function(APIError<T> value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class APILoading<T> implements APIResponse<T> {
+  const factory APILoading(String message) = _$APILoading<T>;
+
+  String get message;
+  @JsonKey(ignore: true)
+  $APILoadingCopyWith<T, APILoading<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -158,6 +310,7 @@ class _$APISuccess<T> implements APISuccess<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String message) loading,
     required TResult Function(T value) success,
     required TResult Function(HttpException exception) error,
   }) {
@@ -167,6 +320,7 @@ class _$APISuccess<T> implements APISuccess<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? loading,
     TResult Function(T value)? success,
     TResult Function(HttpException exception)? error,
   }) {
@@ -176,6 +330,7 @@ class _$APISuccess<T> implements APISuccess<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? loading,
     TResult Function(T value)? success,
     TResult Function(HttpException exception)? error,
     required TResult orElse(),
@@ -189,6 +344,7 @@ class _$APISuccess<T> implements APISuccess<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(APILoading<T> value) loading,
     required TResult Function(APISuccess<T> value) success,
     required TResult Function(APIError<T> value) error,
   }) {
@@ -198,6 +354,7 @@ class _$APISuccess<T> implements APISuccess<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(APILoading<T> value)? loading,
     TResult Function(APISuccess<T> value)? success,
     TResult Function(APIError<T> value)? error,
   }) {
@@ -207,6 +364,7 @@ class _$APISuccess<T> implements APISuccess<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(APILoading<T> value)? loading,
     TResult Function(APISuccess<T> value)? success,
     TResult Function(APIError<T> value)? error,
     required TResult orElse(),
@@ -299,6 +457,7 @@ class _$APIError<T> implements APIError<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String message) loading,
     required TResult Function(T value) success,
     required TResult Function(HttpException exception) error,
   }) {
@@ -308,6 +467,7 @@ class _$APIError<T> implements APIError<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String message)? loading,
     TResult Function(T value)? success,
     TResult Function(HttpException exception)? error,
   }) {
@@ -317,6 +477,7 @@ class _$APIError<T> implements APIError<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? loading,
     TResult Function(T value)? success,
     TResult Function(HttpException exception)? error,
     required TResult orElse(),
@@ -330,6 +491,7 @@ class _$APIError<T> implements APIError<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(APILoading<T> value) loading,
     required TResult Function(APISuccess<T> value) success,
     required TResult Function(APIError<T> value) error,
   }) {
@@ -339,6 +501,7 @@ class _$APIError<T> implements APIError<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(APILoading<T> value)? loading,
     TResult Function(APISuccess<T> value)? success,
     TResult Function(APIError<T> value)? error,
   }) {
@@ -348,6 +511,7 @@ class _$APIError<T> implements APIError<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(APILoading<T> value)? loading,
     TResult Function(APISuccess<T> value)? success,
     TResult Function(APIError<T> value)? error,
     required TResult orElse(),

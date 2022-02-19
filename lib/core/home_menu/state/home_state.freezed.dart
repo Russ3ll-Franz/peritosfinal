@@ -25,6 +25,12 @@ class _$HomeStateTearOff {
   _LoggedOut loggedOut() {
     return const _LoggedOut();
   }
+
+  _Loaded inspeccionLoaded(List<Inspeccion> tipoInspeccions) {
+    return _Loaded(
+      tipoInspeccions,
+    );
+  }
 }
 
 /// @nodoc
@@ -36,18 +42,22 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() loggedOut,
+    required TResult Function(List<Inspeccion> tipoInspeccions)
+        inspeccionLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? loggedOut,
+    TResult Function(List<Inspeccion> tipoInspeccions)? inspeccionLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? loggedOut,
+    TResult Function(List<Inspeccion> tipoInspeccions)? inspeccionLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,18 +65,21 @@ mixin _$HomeState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Loaded value) inspeccionLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Loaded value)? inspeccionLoaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Loaded value)? inspeccionLoaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +140,8 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() loggedOut,
+    required TResult Function(List<Inspeccion> tipoInspeccions)
+        inspeccionLoaded,
   }) {
     return loading();
   }
@@ -136,6 +151,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? loggedOut,
+    TResult Function(List<Inspeccion> tipoInspeccions)? inspeccionLoaded,
   }) {
     return loading?.call();
   }
@@ -145,6 +161,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? loggedOut,
+    TResult Function(List<Inspeccion> tipoInspeccions)? inspeccionLoaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -158,6 +175,7 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Loaded value) inspeccionLoaded,
   }) {
     return loading(this);
   }
@@ -167,6 +185,7 @@ class _$_Loading implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Loaded value)? inspeccionLoaded,
   }) {
     return loading?.call(this);
   }
@@ -176,6 +195,7 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Loaded value)? inspeccionLoaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -230,6 +250,8 @@ class _$_LoggedOut implements _LoggedOut {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() loggedOut,
+    required TResult Function(List<Inspeccion> tipoInspeccions)
+        inspeccionLoaded,
   }) {
     return loggedOut();
   }
@@ -239,6 +261,7 @@ class _$_LoggedOut implements _LoggedOut {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? loggedOut,
+    TResult Function(List<Inspeccion> tipoInspeccions)? inspeccionLoaded,
   }) {
     return loggedOut?.call();
   }
@@ -248,6 +271,7 @@ class _$_LoggedOut implements _LoggedOut {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? loggedOut,
+    TResult Function(List<Inspeccion> tipoInspeccions)? inspeccionLoaded,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -261,6 +285,7 @@ class _$_LoggedOut implements _LoggedOut {
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Loaded value) inspeccionLoaded,
   }) {
     return loggedOut(this);
   }
@@ -270,6 +295,7 @@ class _$_LoggedOut implements _LoggedOut {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Loaded value)? inspeccionLoaded,
   }) {
     return loggedOut?.call(this);
   }
@@ -279,6 +305,7 @@ class _$_LoggedOut implements _LoggedOut {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Loaded value)? inspeccionLoaded,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -290,4 +317,142 @@ class _$_LoggedOut implements _LoggedOut {
 
 abstract class _LoggedOut implements HomeState {
   const factory _LoggedOut() = _$_LoggedOut;
+}
+
+/// @nodoc
+abstract class _$LoadedCopyWith<$Res> {
+  factory _$LoadedCopyWith(_Loaded value, $Res Function(_Loaded) then) =
+      __$LoadedCopyWithImpl<$Res>;
+  $Res call({List<Inspeccion> tipoInspeccions});
+}
+
+/// @nodoc
+class __$LoadedCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
+    implements _$LoadedCopyWith<$Res> {
+  __$LoadedCopyWithImpl(_Loaded _value, $Res Function(_Loaded) _then)
+      : super(_value, (v) => _then(v as _Loaded));
+
+  @override
+  _Loaded get _value => super._value as _Loaded;
+
+  @override
+  $Res call({
+    Object? tipoInspeccions = freezed,
+  }) {
+    return _then(_Loaded(
+      tipoInspeccions == freezed
+          ? _value.tipoInspeccions
+          : tipoInspeccions // ignore: cast_nullable_to_non_nullable
+              as List<Inspeccion>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Loaded implements _Loaded {
+  const _$_Loaded(this.tipoInspeccions);
+
+  @override
+  final List<Inspeccion> tipoInspeccions;
+
+  @override
+  String toString() {
+    return 'HomeState.inspeccionLoaded(tipoInspeccions: $tipoInspeccions)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Loaded &&
+            const DeepCollectionEquality()
+                .equals(other.tipoInspeccions, tipoInspeccions));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(tipoInspeccions));
+
+  @JsonKey(ignore: true)
+  @override
+  _$LoadedCopyWith<_Loaded> get copyWith =>
+      __$LoadedCopyWithImpl<_Loaded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function() loggedOut,
+    required TResult Function(List<Inspeccion> tipoInspeccions)
+        inspeccionLoaded,
+  }) {
+    return inspeccionLoaded(tipoInspeccions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? loggedOut,
+    TResult Function(List<Inspeccion> tipoInspeccions)? inspeccionLoaded,
+  }) {
+    return inspeccionLoaded?.call(tipoInspeccions);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function()? loggedOut,
+    TResult Function(List<Inspeccion> tipoInspeccions)? inspeccionLoaded,
+    required TResult orElse(),
+  }) {
+    if (inspeccionLoaded != null) {
+      return inspeccionLoaded(tipoInspeccions);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Loaded value) inspeccionLoaded,
+  }) {
+    return inspeccionLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Loaded value)? inspeccionLoaded,
+  }) {
+    return inspeccionLoaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Loaded value)? inspeccionLoaded,
+    required TResult orElse(),
+  }) {
+    if (inspeccionLoaded != null) {
+      return inspeccionLoaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loaded implements HomeState {
+  const factory _Loaded(List<Inspeccion> tipoInspeccions) = _$_Loaded;
+
+  List<Inspeccion> get tipoInspeccions;
+  @JsonKey(ignore: true)
+  _$LoadedCopyWith<_Loaded> get copyWith => throw _privateConstructorUsedError;
 }

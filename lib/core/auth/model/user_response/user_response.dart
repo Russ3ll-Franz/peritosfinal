@@ -7,7 +7,8 @@ import 'user.dart';
 part 'user_response.freezed.dart';
 part 'user_response.g.dart';
 
-UserResponse userResponseFromJson(String str) => UserResponse.fromJson(json.decode(str));
+UserResponse userResponseFromJson(String str) =>
+    UserResponse.fromJson(json.decode(str));
 
 String userResponseToJson(UserResponse data) => json.encode(data.toJson());
 
@@ -19,5 +20,6 @@ class UserResponse with _$UserResponse {
     User? user,
   }) = _UserResponse;
 
-  factory UserResponse.fromJson(Map<String, dynamic> json) => _$UserResponseFromJson(json);
+  factory UserResponse.fromJson(Map<String, dynamic> json) =>
+      _$UserResponseFromJson(json);
 }

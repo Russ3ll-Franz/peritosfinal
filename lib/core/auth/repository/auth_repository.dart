@@ -35,14 +35,15 @@ class AuthRepository implements AuthRepositoryProtocol {
       'password': password,
     };
     final loginResponse = await _api.post('usuario/logInApp', jsonEncode(params));
+    print("loginResponse");
+    print(loginResponse);
 
-    print("my loginResponse");
-    print(loginResponse.toString());
-    return loginResponse.when(success: (success) async {
+    return loginResponse.when(loading: (loading) async {
+      return const AuthState.loading();
+    }, success: (success) async {
       final userRepository = _reader(userRepositoryProvider);
 
       final userId = UserResponse.fromJson(success);
-      print(userId.user!.id.toString());
 
       await userRepository.saveIdUser(userId.user!.id.toString());
 

@@ -23,7 +23,6 @@ class UserRepository implements TokenRepositoryProtocol {
   User? _user;
   @override
   Future<String?> fetchUserId() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
     String? idValue;
 
     if (_platform == PlatformType.iOS ||
@@ -40,6 +39,7 @@ class UserRepository implements TokenRepositoryProtocol {
     } catch (e) {
       rethrow;
     }
+    return idValue;
   }
 
   @override

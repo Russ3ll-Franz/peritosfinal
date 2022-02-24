@@ -44,7 +44,8 @@ class MenuScreen extends ConsumerWidget {
           ],
         ),
         body: Padding(
-          padding: EdgeInsets.only(left: 20.0, top: 10.0, right: 20.0, bottom: 10.0),
+          padding:
+              EdgeInsets.only(left: 20.0, top: 10.0, right: 20.0, bottom: 10.0),
           child: Container(
             height: size.height,
             child: Column(children: <Widget>[
@@ -53,11 +54,17 @@ class MenuScreen extends ConsumerWidget {
                 children: <Widget>[
                   Text(
                     "ALLEMANT PERITOS",
-                    style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20),
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
                   ),
                   Text(
                     "Menu",
-                    style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
                   ),
                 ],
               ),
@@ -82,7 +89,8 @@ class MenuScreen extends ConsumerWidget {
                   accountName: Text("userModel."),
                   currentAccountPicture: CircleAvatar(
                     radius: 40.0,
-                    backgroundImage: AssetImage('assets/images/person/user.jpg'),
+                    backgroundImage:
+                        AssetImage('assets/images/person/user.jpg'),
                     backgroundColor: Colors.white,
                   ),
                   accountEmail: null,
